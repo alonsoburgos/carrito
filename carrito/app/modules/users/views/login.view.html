@@ -1,0 +1,53 @@
+<div class="page-content no-padding">
+    
+    <div class="fullscreen" data-ng-controller="Authentication as vm">
+            
+        <div class="xs-col-12 text-center">
+            <h1 class="titulo">Carrito <i class="fa fa-shopping-cart"></i></h1>
+        </div>
+        <div class="contenedor">
+            <form class="form-horizontal" name="vm.form" id="validation-form" method="get" autocomplete="off">
+                <div class="row no-margin">
+                    <!-- TITULO -->
+                    <div class="xs-col-12 text-center">
+                        <h1 class="subtitulo">Iniciar sesi&oacute;n</h1>
+                    </div>
+                    <!-- INPUT DE EMPLEADO -->
+                    <div class="xs-col-12 text-center">
+                        <div class="form-group">
+                            <label class="pull-left labelinput">Email</label>
+                            <input
+                                type = "email"
+                                ng-model = "vm.user.email" 
+                                class = "input form-control"
+                                coppel-focus-on = "vm.logmein"
+                                coppel-enter = "vm.login()" 
+                                autofocus
+                                required
+                                ng-disabled="opc_logeando"/>
+                            <label class="pull-left labelinput">Password</label>
+                            <input
+                                type = "password"
+                                ng-model = "vm.user.password" 
+                                class = "input form-control"
+                                coppel-focus-on = "vm.logmein"
+                                coppel-enter = "vm.login()" 
+                                autofocus
+                                required
+                                ng-disabled="opc_logeando"/>
+                        </div>
+                    </div>
+                    <!-- MENSAJE -->
+                    <div class="xs-col-12 text-center div-txtproceso" ng-class="{'div-txtprocesocargando': opc_logeando}">
+                        <span ng-if="opc_logeando" class="txtproceso"><i class="fa fa-spinner fa-spin fa-lg"></i> {{txt_proceso}}</span>
+                    </div>
+
+                    <!-- BOTON -->
+                    <div class="xs-col-12 pull-right">
+                        <button  type="button" id="btn_action" class="btn btnlogin" ng-class="{'btn-primary': !opc_logeando && vm.form.$valid, 'btn-default': vm.form.$invalid || opc_logeando }" ng-click="vm.login(vm.user.email, vm.user.password)" ng-disabled="vm.form.$invalid || opc_logeando">Iniciar sesi&oacute;n</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

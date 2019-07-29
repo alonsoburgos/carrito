@@ -1,0 +1,13 @@
+{
+    "meta":{},
+    "data":{
+  "menu": [
+    {
+      "name": "Comprar",
+      "uri": "/carrito",
+      "state": "app.carrito",
+      "nodes": []
+    }
+  ]
+  }
+}

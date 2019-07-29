@@ -1,0 +1,62 @@
+#btnBorrarProducto{
+    color: #b73333 !important;
+}
+
+#inputCantidad{
+    width: 50px !important;
+    border-radius: 8px !important;
+}
+
+.tdImporte{
+    text-align: right !important;
+}
+
+.thImporte{
+    text-align: right !important;
+}
+
+#divCarrito{
+    background: #f7f7f7 !important;
+    height: 535px !important;
+    position: fixed !important;
+    top: 100 !important;
+    right: 0 !important;
+}
+
+#divTablaCarrito{
+    overflow-y: scroll !important;
+    height: 310px !important;
+    max-height: 400px !important;
+}
+
+#divBotonesCarrito{
+    margin-bottom: 20px !important;
+}
+
+.btnCarrito{
+    margin-bottom: 20px !important;
+    width: 150px !important;
+}
+
+.btnRedondo {
+    border-radius: 8px !important;
+}
+
+.divSpiner{
+    text-align: center !important;
+    margin-top: 200px !important;
+    font-size: x-large !important;
+}
+
+#pTotalCarrito{
+    font-size: large !important;
+    font-weight: bold !important;
+}
+
+#divProductos{
+    font-weight: bold !important;
+}
+
+#divCarritoVacio{
+    font-size: large !important;
+}

@@ -1,0 +1,89 @@
+<section class="page-content">
+    <div>
+        <h1 class="header blue">Productos</h1>
+    </div>
+    <div class="text-center"><a href="" ui-sref="app.carrito" data-toggle="tooltip" data-placement="left" title="Regresar al carrito"><i class="fa fa-chevron-left fa-2x"></i><i class="fa fa-shopping-cart fa-3x"></i></a></div>
+    
+    <div class="text-center">
+        <h3><i class="fa fa-search" aria-hidden="true"></i> BUSCAR PRODUCTO</h3> 
+        <p><input type="text" ng-model="product" data-toggle="tooltip" data-placement="left" title="Busca un producto especifico"></p>
+        <a href="#modalAgregar" data-placement="bottom" title="Agrega un nuevo producto" data-toggle="modal" data-target="#modalAgregar"><i class="fa fa-plus-square fa-2x"></i></a>
+    </div>
+    <div>
+        <table class="table table-condensed borderless">
+            <thead>
+                <th>#</th>
+                <th>Producto</th>
+                <th>Precio</th>
+                <th>Existencia</th>
+                <th>Acci&oacute;n</th>
+            </thead>
+            <tbody>
+                <tr ng-repeat="producto in vmProductos.productos | filter : product">
+                    <td>{{$index+1}}.-</td>
+                    <td>{{producto.nom_producto}}</td>
+                    <td>{{producto.imp_precio | currency}}</td>
+                    <td>{{producto.num_existencia}}</td>
+                    <td>
+                        <a href="" ng-click="vmProductos.fun_consultaeditarproducto(producto)" data-toggle="modal" data-target="#modalEditar" title="Editar producto"><i class="fa fa-edit fa-lg"></i></a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div id="modalAgregar" class="modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h2 class="modal-title">Nuevo Producto</h2>
+                </div>
+                <form name="frmAgregar">
+                    <div class="modal-body text-center">
+                        <div>
+                            <input type="text" ng-model="vmProductos.productoporagregar.nom_producto" placeholder="Nombre" required>
+                        </div>
+                        <div>
+                            <input type="text" ng-model="vmProductos.productoporagregar.imp_precio" placeholder="Precio" onkeypress="return isNumberKey(event)" required>
+                        </div>
+                        <div>
+                            <input type="text" ng-model="vmProductos.productoporagregar.num_existencia" placeholder="Existencia" onkeypress="return isNumberKey(event)" required>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                        <button class="btn btn-primary" ng-click="vmProductos.fun_agregaproducto()" ng-disabled="frmAgregar.$invalid" data-toggle="tooltip" data-placement="left" title="Agrega producto">Agregar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div id="modalEditar" class="modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h2 class="modal-title">Editar Producto</h2>
+                </div>
+                <form name="frmEditar">
+                    <div class="modal-body text-center">
+                        <div>
+                            <input type="text" ng-model="vmProductos.productoporeditar.nom_producto" placeholder="Nombre" required>
+                        </div>
+                        <div>
+                            <input type="text" ng-model="vmProductos.productoporeditar.imp_precio" placeholder="Precio" onkeypress="return isNumberKey(event)" required>
+                        </div>
+                        <div>
+                            <input type="text" ng-model="vmProductos.productoporeditar.num_existencia" placeholder="Existencia" onkeypress="return isNumberKey(event)" required>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                        <button class="btn btn-primary" ng-click="vmProductos.fun_actualizarproducto()" ng-disabled="frmEditar.$invalid" data-toggle="tooltip" data-placement="left" title="Agrega producto">Guardar cambios</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</section>
